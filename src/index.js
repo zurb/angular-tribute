@@ -12,10 +12,10 @@ const AngularTribute = ($timeout) => ({
     onReplaced: '&',
     onNoMatch: '&'
   },
-  controller: ($scope) => {
+  controller: function($scope) {
     this.$onDestroy = () => {
       $scope.tribute.hideMenu();
-    }
+    };
   },
   compile($element, $attrs) {
     return ($scope, $element, $attrs) => {

@@ -6,8 +6,6 @@
 
   Tribute = 'default' in Tribute ? Tribute['default'] : Tribute;
 
-  var _this = undefined;
-
   if (typeof Tribute === 'undefined') {
     throw new Error('[AngularTribute] cannot locate tributejs!');
   }
@@ -22,12 +20,12 @@
         onNoMatch: '&'
       },
       controller: function controller($scope) {
-        _this.$onDestroy = function () {
+        this.$onDestroy = function () {
           $scope.tribute.hideMenu();
         };
       },
       compile: function compile($element, $attrs) {
-        var _this2 = this;
+        var _this = this;
 
         return function ($scope, $element, $attrs) {
           if (typeof $scope.options === 'array') {
@@ -43,10 +41,10 @@
           $scope.tribute.attach($element[0]);
 
           $element[0].addEventListener("tribute-replaced", function (e) {
-            $timeout($scope.onReplaced.apply(_this2));
+            $timeout($scope.onReplaced.apply(_this));
           });
           $element[0].addEventListener("tribute-no-match", function (e) {
-            $timeout($scope.onReplaced.apply(_this2));
+            $timeout($scope.onReplaced.apply(_this));
           });
         };
       }

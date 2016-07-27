@@ -4,8 +4,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var Tribute = _interopDefault(require('tributejs/src'));
 
-var _this = undefined;
-
 if (typeof Tribute === 'undefined') {
   throw new Error('[AngularTribute] cannot locate tributejs!');
 }
@@ -20,12 +18,12 @@ var AngularTribute = function AngularTribute($timeout) {
       onNoMatch: '&'
     },
     controller: function controller($scope) {
-      _this.$onDestroy = function () {
+      this.$onDestroy = function () {
         $scope.tribute.hideMenu();
       };
     },
     compile: function compile($element, $attrs) {
-      var _this2 = this;
+      var _this = this;
 
       return function ($scope, $element, $attrs) {
         if (typeof $scope.options === 'array') {
@@ -41,10 +39,10 @@ var AngularTribute = function AngularTribute($timeout) {
         $scope.tribute.attach($element[0]);
 
         $element[0].addEventListener("tribute-replaced", function (e) {
-          $timeout($scope.onReplaced.apply(_this2));
+          $timeout($scope.onReplaced.apply(_this));
         });
         $element[0].addEventListener("tribute-no-match", function (e) {
-          $timeout($scope.onReplaced.apply(_this2));
+          $timeout($scope.onReplaced.apply(_this));
         });
       };
     }
