@@ -41,10 +41,12 @@
           $scope.tribute.attach($element[0]);
 
           $element[0].addEventListener("tribute-replaced", function (e) {
+            if (typeof $scope.onReplaced !== 'function') return;
             $timeout($scope.onReplaced.apply(_this));
           });
           $element[0].addEventListener("tribute-no-match", function (e) {
-            $timeout($scope.onReplaced.apply(_this));
+            if (typeof $scope.onNoMatch !== 'function') return;
+            $timeout($scope.onNoMatch.apply(_this));
           });
         };
       }

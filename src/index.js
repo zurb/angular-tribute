@@ -32,10 +32,12 @@ const AngularTribute = ($timeout) => ({
       $scope.tribute.attach($element[0]);
 
       $element[0].addEventListener("tribute-replaced", (e) => {
+        if (typeof $scope.onReplaced !== 'function') return;
         $timeout($scope.onReplaced.apply(this));
       });
       $element[0].addEventListener("tribute-no-match", (e) => {
-        $timeout($scope.onReplaced.apply(this));
+        if (typeof $scope.onNoMatch !== 'function') return;
+        $timeout($scope.onNoMatch.apply(this));
       });
     }
   }

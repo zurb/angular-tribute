@@ -1,6 +1,6 @@
 {
   "name": "angular-tribute",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An AngularJS wrapper for ZURB's Tribute library for native @mentions",
   "license": "MIT",
   "repository": "zurb/angular-tribute",
