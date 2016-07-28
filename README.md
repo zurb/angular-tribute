@@ -1,6 +1,6 @@
 # angular-tribute
 
-> An AngularJS wrapper for ZURB's [Tribute](https://github.com/zurb/tribute) library for native @mentions.
+> An AngularJS 1.5+ wrapper for ZURB's [Tribute](https://github.com/zurb/tribute) library for native @mentions.
 
 ## Install
 
