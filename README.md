@@ -8,11 +8,11 @@
 $ npm install angular-tribute --save
 ```
 
-**or** include the UMD build, hosted by [npmcdn](https://npmcdn.com) in a `<script>` tag. You will also need to include the main ZURB Tribute library:
+**or** include the UMD build, hosted by [unpkg](https://unpkg.com) in a `<script>` tag. You will also need to include the main ZURB Tribute library:
 
 ```js
 <script src="js/tribute.js"></script>
-<script src="//npmcdn.com/angular-tribute"></script>
+<script src="//unpkg.com/angular-tribute"></script>
 ```
 
 ## Usage
