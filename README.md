@@ -23,7 +23,7 @@ import AngularTribute from "angular-tribute";
 
 angular
   .module('myApp', [])
-  .directive('angularTribute', AngularTribute)
+  .directive('angularTribute', ['$timeout', AngularTribute])
 ```
 
 In your controller:
