@@ -39,6 +39,10 @@ const AngularTribute = ($timeout) => ({
         if (typeof $scope.onNoMatch !== 'function') return;
         $timeout($scope.onNoMatch.apply(this));
       });
+
+      $scope.$watch('values', (newValues, oldValues) => {
+        $scope.tribute.append(0, newValues, true);
+      });
     }
   }
 });
