@@ -39,6 +39,10 @@ const AngularTribute = ($timeout) => ({
         if (typeof $scope.onNoMatch !== 'function') return;
         $timeout($scope.onNoMatch.apply(this));
       });
+
+      $scope.$on('$destroy', () => {
+        $scope.tribute.detach($element[0]);
+      });
     }
   }
 });

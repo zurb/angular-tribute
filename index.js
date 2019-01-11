@@ -17,11 +17,11 @@ var AngularTribute = function AngularTribute($timeout) {
       onReplaced: '&',
       onNoMatch: '&'
     },
-    controller: function controller($scope) {
+    controller: ['$scope', function ($scope) {
       this.$onDestroy = function () {
         $scope.tribute.hideMenu();
       };
-    },
+    }],
     compile: function compile($element, $attrs) {
       var _this = this;
 
@@ -45,6 +45,10 @@ var AngularTribute = function AngularTribute($timeout) {
         $element[0].addEventListener("tribute-no-match", function (e) {
           if (typeof $scope.onNoMatch !== 'function') return;
           $timeout($scope.onNoMatch.apply(_this));
+        });
+
+        $scope.$on('$destroy', function () {
+          $scope.tribute.detach($element[0]);
         });
       };
     }
