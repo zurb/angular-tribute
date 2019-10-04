@@ -43,6 +43,10 @@ const AngularTribute = ($timeout) => ({
       $scope.$watch('values', (newValues, oldValues) => {
         $scope.tribute.append(0, newValues, true);
       });
+
+      $scope.$on('$destroy', () => {
+        $scope.tribute.detach($element[0]);
+      });
     }
   }
 });
