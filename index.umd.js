@@ -49,6 +49,10 @@
             $timeout($scope.onNoMatch.apply(_this));
           });
 
+          $scope.$watch('values', function (newValues, oldValues) {
+            $scope.tribute.append(0, newValues, true);
+          });
+
           $scope.$on('$destroy', function () {
             $scope.tribute.detach($element[0]);
           });
